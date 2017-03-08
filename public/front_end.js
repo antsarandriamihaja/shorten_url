@@ -1,4 +1,4 @@
-$("#shorten").on('click', function(){
+$(".btn-shorten").on('click', function(){
     //ajax call 
     $.ajax({
         url: '/api/shorten',
@@ -6,8 +6,8 @@ $("#shorten").on('click', function(){
         dataType: 'JSON',
         data: {url: $('#url-field').val()},
         success: function(data){
-            var resultHTML = '<a class="result" href="' + data.shortUrl + '">'
-            + data.shortUrl + '</a>';
+            var resultHTML = '<a class="result" href="' + data.generatedUrl + '">'
+            + data.generatedUrl + '</a>';
         $('#link').html(resultHTML);
         $('#link').hide().fadeIn('slow');
         }
