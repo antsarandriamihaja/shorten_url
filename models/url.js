@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 //schema for incrementing numbers of url in db
-var url_countSchema = mongoose.Schema({
+var url_countSchema = Schema({
     _id: {
         type: String, 
         required: true
@@ -15,7 +15,7 @@ var url_countSchema = mongoose.Schema({
 
 var counter = mongoose.model('counter', url_countSchema);
 
-var long_urlsSchema = mongoose.Schema({
+var long_urlsSchema = new Schema({
     _id: {
         type: Number,
         index: true
