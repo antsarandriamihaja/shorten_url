@@ -24,7 +24,6 @@ app.get('/', function(req, res){
 //handling POST requests
 app.post('/api/shorten', function(req, res){
     var original_url = req.body.url;
-    console.log(original_url);
    var generatedUrl = '';
    //add the original url into the Url database and save the link
    var newUrl = Url({
@@ -33,9 +32,13 @@ app.post('/api/shorten', function(req, res){
    
    newUrl.save(function(err){
        if (err) console.log(err);
-   });
-   generatedUrl = webhost+ shorterUrl.encode(newUrl._id); //where the problem is 
-   res.send({'generatedUrl': generatedUrl});
+  
+    generatedUrl = webhost+ shorterUrl.encode(newUrl._id); 
+    
+    res.send({'generatedUrl': generatedUrl});
+    });
+   
+   
 });
 
 
